@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://5efb1pfc8ef5"]
+
+[ext_resource type="Script" uid="uid://b71mmwfppdpb1" path="res://src/scenes/main/menu_panel.gd" id="1_k6per"]
+
+[node name="MenuPanel" type="Control" unique_id=1378413799]
+custom_maximum_size = Vector2(0, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = -1146.0
+offset_bottom = -639.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k6per")
+
+[node name="VBoxMenu" type="VBoxContainer" parent="." unique_id=566877180]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 135.0
+offset_right = 396.0
+offset_bottom = 228.0
+scale = Vector2(3.2459536, 3.4149988)
+
+[node name="LblTitle" type="Label" parent="VBoxMenu" unique_id=1731830673]
+layout_mode = 2
+text = "Sistema Interactivo - Lab 2"
+autowrap_mode = 3
+
+[node name="BtnIniciar" type="Button" parent="VBoxMenu" unique_id=1228863347]
+layout_mode = 2
+text = "Iniciar Simulación"
+
+[node name="BtnSalir" type="Button" parent="VBoxMenu" unique_id=542926472]
+layout_mode = 2
+text = "Cerrar Aplicación"
