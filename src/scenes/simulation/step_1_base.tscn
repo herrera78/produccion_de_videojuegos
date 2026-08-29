@@ -1,28 +1,44 @@
 [gd_scene format=3 uid="uid://c225od0orqwgc"]
 
-[ext_resource type="Script" uid="uid://c6jlqon4fgdck" path="res://src/scenes/simulation/step_1_base.gd" id="1_38iq4"]
+[ext_resource type="Script" uid="uid://c6jlqon4fgdck" path="res://src/scenes/simulation/step_1_base.gd" id="1_vfrwq"]
 
-[node name="Main" type="Control" unique_id=1378413799]
+[node name="Step1Base" type="Control" unique_id=1378413799]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_38iq4")
+script = ExtResource("1_vfrwq")
 
-[node name="Label" type="Label" parent="." unique_id=1731830673]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=481507754]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Este es el Entorno Principal de Simulación - Nivel 1"
+offset_left = 135.0
+offset_top = 94.0
+offset_right = 480.0
+offset_bottom = 214.0
+scale = Vector2(2.2361622, 2.8085103)
 
-[node name="Button" type="Button" parent="." unique_id=1228863347]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 29.0
-offset_right = 63.0
-offset_bottom = 60.0
-text = "Volver"
+[node name="LblTitle" type="Label" parent="VBoxContainer" unique_id=1731830673]
+layout_mode = 2
+text = "Pantalla de Simulación Interactiva - Paso 1"
 
-[connection signal="pressed" from="Button" to="." method="_on_btn_volver_pressed"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=1718460631]
+layout_mode = 2
+columns = 2
+
+[node name="BtnIngrediente1" type="Button" parent="VBoxContainer/GridContainer" unique_id=355291918]
+layout_mode = 2
+text = "+ Seleccionar Base 1"
+
+[node name="BtnIngrediente2" type="Button" parent="VBoxContainer/GridContainer" unique_id=373667942]
+layout_mode = 2
+text = "+ Seleccionar Base 2"
+
+[node name="LblStatusLocal" type="Label" parent="VBoxContainer" unique_id=1360770614]
+layout_mode = 2
+text = "Ninguna opción seleccionada de forma local."
+
+[node name="BtnVolver" type="Button" parent="VBoxContainer" unique_id=1228863347]
+layout_mode = 2
+text = "Volver al Menú"

@@ -17,6 +17,7 @@ func _ready() -> void:
 # Funciones Callback locales para reaccionar a la interacción física
 func _on_btn_simular_pressed() -> void:
 	lbl_estado.text = "Estado del Sistema: Cargando simulación..."
+	get_tree().change_scene_to_file("res://src/scenes/simulation/step_1_base.tscn")
 	print("Simulación iniciada de forma local.")
 
 func _on_btn_salir_pressed() -> void:

@@ -25,6 +25,7 @@ offset_bottom = 228.0
 scale = Vector2(3.2459536, 3.4149988)
 
 [node name="LblTitle" type="Label" parent="VBoxMenu" unique_id=1731830673]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Sistema Interactivo - Lab 2"
 autowrap_mode = 3
