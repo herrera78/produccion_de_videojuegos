@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://0l0shfhsx1mh"]
+
+[ext_resource type="Script" uid="uid://b2gv35tensax1" path="res://src/scenes/credits/credits_panel.gd" id="1_w2i6q"]
+
+[node name="CreditsPanel" type="Control" unique_id=1008805159]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w2i6q")
+
+[node name="Label" type="Label" parent="." unique_id=926716086]
+layout_mode = 0
+offset_left = 271.00003
+offset_top = 185.0
+offset_right = 519.0
+offset_bottom = 208.0
+scale = Vector2(2.4844906, 2.4844906)
+text = "Desarrollado por: [Su Nombre Completo]"
+
+[node name="BtnBack" type="Button" parent="." unique_id=834851763]
+layout_mode = 0
+offset_left = 278.99997
+offset_top = 303.0
+offset_right = 579.0
+offset_bottom = 362.0
+scale = Vector2(2.112569, 2.112569)
+text = "Volver al Menú "
