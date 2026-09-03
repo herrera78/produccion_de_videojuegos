@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bf8mx6l5whl6v"]
+
+[ext_resource type="Script" uid="uid://5da72geu54jc" path="res://src/core/main_app.gd" id="1_yy4rq"]
+
+[node name="MainApp" type="Node" unique_id=1296593340]
+script = ExtResource("1_yy4rq")
+
+[node name="SceneContainer" type="Control" parent="." unique_id=1615737613]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

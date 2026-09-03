@@ -24,16 +24,18 @@ offset_right = 396.0
 offset_bottom = 228.0
 scale = Vector2(3.2459536, 3.4149988)
 
-[node name="LblTitle" type="Label" parent="VBoxMenu" unique_id=1731830673]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Sistema Interactivo - Lab 2"
-autowrap_mode = 3
-
-[node name="BtnIniciar" type="Button" parent="VBoxMenu" unique_id=1228863347]
+[node name="BtnSimulacion" type="Button" parent="VBoxMenu" unique_id=1228863347]
 layout_mode = 2
 text = "Iniciar Simulación"
 
-[node name="BtnSalir" type="Button" parent="VBoxMenu" unique_id=542926472]
+[node name="BtnConfig" type="Button" parent="VBoxMenu" unique_id=464444505]
+layout_mode = 2
+text = "Configuración"
+
+[node name="BtnCredits" type="Button" parent="VBoxMenu" unique_id=729361045]
+layout_mode = 2
+text = "Créditos"
+
+[node name="BtnExit" type="Button" parent="VBoxMenu" unique_id=542926472]
 layout_mode = 2
 text = "Cerrar Aplicación"

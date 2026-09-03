@@ -1,24 +1,22 @@
-# res://menu_panel.gd
+# res://src/scenes/menu/menu_panel.gd
 extends Control
 
-# Captura de nodos hijos en caché tras cargarse el SceneTree
-@onready var btn_simular: Button = $VBoxMenu/BtnIniciar
-@onready var btn_salir: Button = $VBoxMenu/BtnSalir
-@onready var lbl_estado: Label = $VBoxMenu/LblTitle
+@onready var btn_simulation: Button = $VBoxMenu/BtnSimulacion
+@onready var btn_config: Button = $VBoxMenu/BtnConfig
+@onready var btn_credits: Button = $VBoxMenu/BtnCredits
+@onready var btn_exit: Button = $VBoxMenu/BtnExit
 
 func _ready() -> void:
-	# Imprime mensaje técnico de éxito en la consola de depuración
-	print("Sistema interactivo de inicio cargado correctamente.")
-	
-	# Conexión local de eventos (Signals) mediante código
-	btn_simular.pressed.connect(_on_btn_simular_pressed)
-	btn_salir.pressed.connect(_on_btn_salir_pressed)
-
-# Funciones Callback locales para reaccionar a la interacción física
-func _on_btn_simular_pressed() -> void:
-	lbl_estado.text = "Estado del Sistema: Cargando simulación..."
-	get_tree().change_scene_to_file("res://src/scenes/simulation/step_1_base.tscn")
-	print("Simulación iniciada de forma local.")
-
-func _on_btn_salir_pressed() -> void:
-	get_tree().quit()
+	# Conectar botones mediante funciones anónimas (lambdas) inline de emisión global
+	btn_simulation.pressed.connect(func() -> void:
+		EventBus.navigation_requested.emit("res://src/scenes/simulation/step_1_base.tscn")
+	)
+	btn_config.pressed.connect(func() -> void:
+		EventBus.navigation_requested.emit("res://src/scenes/config/config_panel.tscn")
+	)
+	btn_credits.pressed.connect(func() -> void:
+		EventBus.navigation_requested.emit("res://src/scenes/credits/credits_panel.tscn")
+	)
+	btn_exit.pressed.connect(func() -> void:
+		get_tree().quit()
+	)

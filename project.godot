@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="mi_sistema_interactivo"
-run/main_scene="uid://5efb1pfc8ef5"
+run/main_scene="uid://bf8mx6l5whl6v"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://src/assets/ui/icon.svg"
+
+[autoload]
+
+EventBus="*uid://dp5tvk24xs3b4"
 
 [display]
 
