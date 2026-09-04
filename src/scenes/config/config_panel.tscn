@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cf142lml8yall"]
 
-[ext_resource type="Script" uid="uid://c3saxla4ijn1g" path="res://src/scenes/config/config_panel.gd" id="1_0mmty"]
+[ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="2_3vctx"]
 
 [node name="ConfigPanel" type="Control" unique_id=306684912]
 layout_mode = 3
@@ -9,7 +9,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0mmty")
 
 [node name="Label" type="Label" parent="." unique_id=1334380628]
 layout_mode = 1
@@ -25,11 +24,13 @@ grow_vertical = 2
 scale = Vector2(2.4609406, 2.4609406)
 text = "Panel de Configuración de Parámetros"
 
-[node name="BtnBack" type="Button" parent="." unique_id=1384005089]
-layout_mode = 0
-offset_left = 403.0
-offset_top = 248.0
-offset_right = 527.0
-offset_bottom = 299.0
-scale = Vector2(2.2077541, 2.2077541)
-text = "Volver al Menú"
+[node name="BtnBack" parent="." unique_id=350204059 instance=ExtResource("2_3vctx")]
+layout_mode = 1
+offset_left = 363.0
+offset_top = 276.0
+offset_right = -595.5
+offset_bottom = -308.0
+scale = Vector2(2, 2)
+text = "Volver al menú"
+target_scene = "uid://5efb1pfc8ef5"
+discard_previous = true

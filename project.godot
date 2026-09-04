@@ -18,6 +18,7 @@ config/icon="res://src/assets/ui/icon.svg"
 [autoload]
 
 EventBus="*uid://dp5tvk24xs3b4"
+GlobalManager="*uid://cbi6jj53y4hh7"
 
 [display]
 

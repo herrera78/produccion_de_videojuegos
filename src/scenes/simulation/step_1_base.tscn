@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c225od0orqwgc"]
 
 [ext_resource type="Script" uid="uid://c6jlqon4fgdck" path="res://src/scenes/simulation/step_1_base.gd" id="1_vfrwq"]
+[ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="2_4s1qs"]
 
 [node name="Step1Base" type="Control" unique_id=1378413799]
 layout_mode = 3
@@ -27,18 +28,28 @@ text = "Pantalla de Simulación Interactiva - Paso 1"
 layout_mode = 2
 columns = 2
 
-[node name="BtnIngrediente1" type="Button" parent="VBoxContainer/GridContainer" unique_id=355291918]
+[node name="BtnBase1" type="Button" parent="VBoxContainer/GridContainer" unique_id=355291918]
 layout_mode = 2
 text = "+ Seleccionar Base 1"
 
-[node name="BtnIngrediente2" type="Button" parent="VBoxContainer/GridContainer" unique_id=373667942]
+[node name="BtnBase2" type="Button" parent="VBoxContainer/GridContainer" unique_id=373667942]
 layout_mode = 2
 text = "+ Seleccionar Base 2"
 
-[node name="LblStatusLocal" type="Label" parent="VBoxContainer" unique_id=1360770614]
+[node name="BtnItem1" type="Button" parent="VBoxContainer/GridContainer" unique_id=1039808408]
 layout_mode = 2
-text = "Ninguna opción seleccionada de forma local."
+text = "Añadir item 1"
 
-[node name="BtnVolver" type="Button" parent="VBoxContainer" unique_id=1228863347]
+[node name="BtnItem2" type="Button" parent="VBoxContainer/GridContainer" unique_id=627497007]
 layout_mode = 2
-text = "Volver al Menú"
+text = "Añadir item 2"
+
+[node name="LblTotal" type="Label" parent="VBoxContainer" unique_id=1360770614]
+layout_mode = 2
+text = "Total: 0$"
+
+[node name="BtnBack" parent="VBoxContainer" unique_id=350204059 instance=ExtResource("2_4s1qs")]
+layout_mode = 2
+text = "Volver al menú"
+target_scene = "uid://5efb1pfc8ef5"
+discard_previous = true

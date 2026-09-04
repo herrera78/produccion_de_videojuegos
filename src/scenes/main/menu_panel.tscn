@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5efb1pfc8ef5"]
 
 [ext_resource type="Script" uid="uid://b71mmwfppdpb1" path="res://src/scenes/main/menu_panel.gd" id="1_k6per"]
+[ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="2_oixcc"]
 
 [node name="MenuPanel" type="Control" unique_id=1378413799]
 custom_maximum_size = Vector2(0, 0)
@@ -24,17 +25,20 @@ offset_right = 396.0
 offset_bottom = 228.0
 scale = Vector2(3.2459536, 3.4149988)
 
-[node name="BtnSimulacion" type="Button" parent="VBoxMenu" unique_id=1228863347]
+[node name="BtnSimulacion" parent="VBoxMenu" unique_id=350204059 instance=ExtResource("2_oixcc")]
 layout_mode = 2
 text = "Iniciar Simulación"
+target_scene = "uid://c225od0orqwgc"
 
-[node name="BtnConfig" type="Button" parent="VBoxMenu" unique_id=464444505]
+[node name="BtnConfig" parent="VBoxMenu" unique_id=51211826 instance=ExtResource("2_oixcc")]
 layout_mode = 2
 text = "Configuración"
+target_scene = "uid://cf142lml8yall"
 
-[node name="BtnCredits" type="Button" parent="VBoxMenu" unique_id=729361045]
+[node name="BtnCredits" parent="VBoxMenu" unique_id=1478379558 instance=ExtResource("2_oixcc")]
 layout_mode = 2
 text = "Créditos"
+target_scene = "uid://0l0shfhsx1mh"
 
 [node name="BtnExit" type="Button" parent="VBoxMenu" unique_id=542926472]
 layout_mode = 2
