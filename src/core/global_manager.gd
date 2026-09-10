@@ -16,10 +16,22 @@ var selection: Dictionary = {
 
 var current_total: int = 0
 
+# Ejemplo de la información de los cupones
+#{
+	#"value": 2000,
+	#"minimum_purchase": 10000
+#}
+var coupons : Array = []
+
 func _ready() -> void:
 	EventBus.base_selected.connect(_on_base_selected)
 	EventBus.item_added.connect(_on_item_added)
+	EventBus.coupon_obtained.connect(_on_coupon_obtained)
 	_update_total()
+
+func _on_coupon_obtained(coupon: Dictionary) -> void:
+	coupons.append(coupon)
+
 
 func _on_base_selected(base_id: String) -> void:
 	selection["base"] = base_id

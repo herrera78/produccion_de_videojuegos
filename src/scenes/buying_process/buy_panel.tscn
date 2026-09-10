@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://c225od0orqwgc"]
 
-[ext_resource type="Script" uid="uid://c6jlqon4fgdck" path="res://src/scenes/simulation/step_1_base.gd" id="1_vfrwq"]
-[ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="2_4s1qs"]
+[ext_resource type="Script" uid="uid://c6jlqon4fgdck" path="res://src/scenes/buying_process/buy_panel.gd" id="1_wtrvc"]
+[ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="2_a5yq5"]
 
-[node name="Step1Base" type="Control" unique_id=1378413799]
+[node name="BuyPanel" type="Control" unique_id=1378413799]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vfrwq")
+script = ExtResource("1_wtrvc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=481507754]
 layout_mode = 0
@@ -48,7 +48,13 @@ text = "Añadir item 2"
 layout_mode = 2
 text = "Total: 0$"
 
-[node name="BtnBack" parent="VBoxContainer" unique_id=350204059 instance=ExtResource("2_4s1qs")]
+[node name="BtnBuy" parent="VBoxContainer" unique_id=350204059 instance=ExtResource("2_a5yq5")]
+layout_mode = 2
+text = "Continuar compra"
+target_scene = "uid://btmj7aq02wxh4"
+discard_previous = true
+
+[node name="BtnBack" parent="VBoxContainer" unique_id=840366982 instance=ExtResource("2_a5yq5")]
 layout_mode = 2
 text = "Volver al menú"
 target_scene = "uid://5efb1pfc8ef5"

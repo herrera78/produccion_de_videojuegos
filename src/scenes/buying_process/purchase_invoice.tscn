@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://btmj7aq02wxh4"]
+
+[ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="1_8ogr2"]
+[ext_resource type="Script" uid="uid://6kp6ri5hkcky" path="res://src/scenes/buying_process/purchase_invoice.gd" id="1_lm570"]
+
+[node name="PurchaseInvoice" type="Control" unique_id=228310787]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lm570")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1976696185]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 48.999992
+offset_right = 612.0
+offset_bottom = 356.0
+scale = Vector2(1.755, 1.755)
+
+[node name="LblTitle" type="Label" parent="VBoxContainer" unique_id=1517311252]
+layout_mode = 2
+text = "CONFIRMACIÓN DE COMPRA"
+
+[node name="LblSubtotal" type="Label" parent="VBoxContainer" unique_id=1828717594]
+layout_mode = 2
+text = "BASE ELEGIDA: ...    0$
+INGREDIENTE 1: ... 0$
+INGREDIENTE 2: ... 0$
+Subtotal:... 0$"
+
+[node name="LblCoupon" type="Label" parent="VBoxContainer" unique_id=1852637546]
+layout_mode = 2
+text = "DESCUENTO APLICADO POR CUPÓN: 0$"
+
+[node name="LblTotal" type="Label" parent="VBoxContainer" unique_id=2048895684]
+layout_mode = 2
+text = "TOTAL: 0%"
+
+[node name="BtnConfirm" type="Button" parent="VBoxContainer" unique_id=258147439]
+layout_mode = 2
+text = "Confirmar Compra"
+
+[node name="BtnBack" parent="VBoxContainer" unique_id=350204059 instance=ExtResource("1_8ogr2")]
+layout_mode = 2
+text = "Volver"
+target_scene = "uid://c225od0orqwgc"
+discard_previous = true
