@@ -46,3 +46,17 @@ func _update_total() -> void:
 	current_total += selection["item_1"] * prices["item_1"]
 	current_total += selection["item_2"] * prices["item_2"]
 	EventBus.total_changed.emit(current_total)
+
+func get_best_coupon(subtotal: int) -> Dictionary:
+	var best_coupon := {}
+	for coupon in coupons:
+		if subtotal >= coupon["minimum_purchase"]:
+			if best_coupon.is_empty():
+				best_coupon = coupon
+			elif coupon["value"] > best_coupon["value"]:
+				best_coupon = coupon
+	return best_coupon
+
+func remove_coupon(coupon: Dictionary) -> void:
+	if coupon in coupons:
+		coupons.erase(coupon)

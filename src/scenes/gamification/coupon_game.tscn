@@ -1,8 +1,62 @@
 [gd_scene format=3 uid="uid://4y6bmxw0xtbl"]
 
+[ext_resource type="Script" uid="uid://cxircmmhb8085" path="res://src/scenes/gamification/coupon_game.gd" id="1_04lhb"]
+[ext_resource type="Script" uid="uid://dem3qskctgtrq" path="res://src/scenes/gamification/spawner.gd" id="1_5us3o"]
 [ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="1_oxamv"]
+[ext_resource type="Script" uid="uid://bxd0uid2halht" path="res://src/scenes/gamification/player.gd" id="2_fmnlb"]
+[ext_resource type="PackedScene" uid="uid://ltbq61dfm3w8" path="res://src/scenes/gamification/falling_food.tscn" id="3_1u2kp"]
+[ext_resource type="Texture2D" uid="uid://dntnfn77s6h8a" path="res://src/scenes/gamification/assets/Aliens/alienGreen_suit.png" id="6_1u2kp"]
+[ext_resource type="Texture2D" uid="uid://bnqv31ik382bu" path="res://src/scenes/gamification/assets/Stone elements/elementStone016.png" id="7_eo802"]
+[ext_resource type="Texture2D" uid="uid://bduqxklfrf2h6" path="res://src/scenes/gamification/assets/Aliens/alienBeige_round.png" id="7_ikb2h"]
+[ext_resource type="Texture2D" uid="uid://bohj5nv3i8iyl" path="res://src/scenes/gamification/assets/Stone elements/elementStone036.png" id="8_3tfhq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t3dw"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f3xa"]
+size = Vector2(64, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06fw3"]
+size = Vector2(1156, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cttfq"]
+size = Vector2(32, 800)
 
 [node name="CouponGame" type="Node2D" unique_id=812169101]
+script = ExtResource("1_04lhb")
+
+[node name="Spawner2" type="Node2D" parent="." unique_id=1386702869 groups=["spawner"]]
+position = Vector2(569, 77)
+script = ExtResource("1_5us3o")
+max_active_items = 7
+spawn_interval = 2.5
+collectable_scene = ExtResource("3_1u2kp")
+
+[node name="Timer" type="Timer" parent="Spawner2" unique_id=1102118819]
+process_callback = 0
+
+[node name="Spawner3" type="Node2D" parent="." unique_id=1028237631 groups=["spawner"]]
+position = Vector2(227, 117)
+script = ExtResource("1_5us3o")
+max_active_items = 5
+spawn_interval = 4.0
+collectable_scene = ExtResource("3_1u2kp")
+use_parabola = true
+
+[node name="Timer" type="Timer" parent="Spawner3" unique_id=528425604]
+process_callback = 0
+wait_time = 1.2
+
+[node name="Spawner4" type="Node2D" parent="." unique_id=1072516959 groups=["spawner"]]
+position = Vector2(937, 117)
+script = ExtResource("1_5us3o")
+max_active_items = 5
+collectable_scene = ExtResource("3_1u2kp")
+use_parabola = true
+
+[node name="Timer" type="Timer" parent="Spawner4" unique_id=801914943]
+process_callback = 0
+wait_time = 2.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1104283911]
 
@@ -19,3 +73,101 @@ offset_bottom = 41.184
 text = "CERRAR"
 target_scene = "uid://c0o8aeh6tif7l"
 discard_previous = true
+
+[node name="Objective" type="Label" parent="CanvasLayer" unique_id=792319555]
+offset_left = 460.0
+offset_top = 33.0
+offset_right = 662.0
+offset_bottom = 77.0
+text = "Ingredientes: 0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultPanel" type="Panel" parent="CanvasLayer" unique_id=137762880]
+visible = false
+offset_left = 347.0
+offset_top = 204.0
+offset_right = 816.0
+offset_bottom = 416.0
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer/ResultPanel" unique_id=237373247]
+layout_mode = 0
+offset_right = 465.0
+offset_bottom = 99.0
+text = "RESULTADOS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonNav" parent="CanvasLayer/ResultPanel" unique_id=1673895480 instance=ExtResource("1_oxamv")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.679
+anchor_right = 0.5
+anchor_bottom = 0.679
+offset_left = -128.5
+offset_top = -40.947998
+offset_right = 119.5
+offset_bottom = 41.052002
+text = "Terminar juego"
+target_scene = "uid://c0o8aeh6tif7l"
+discard_previous = true
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=660454991]
+position = Vector2(569, 574)
+script = ExtResource("2_fmnlb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1306795284]
+texture = ExtResource("6_1u2kp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=57558029]
+shape = SubResource("RectangleShape2D_6t3dw")
+
+[node name="AreaRecolect" type="Area2D" parent="Player" unique_id=770148274]
+position = Vector2(0, -58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AreaRecolect" unique_id=744079977]
+shape = SubResource("RectangleShape2D_4f3xa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/AreaRecolect" unique_id=779247644]
+scale = Vector2(1, 0.21428572)
+texture = ExtResource("7_ikb2h")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=271875098 groups=["floor"]]
+position = Vector2(562, 633)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1541001801]
+position = Vector2(19.499977, 2.0000052)
+scale = Vector2(5.2863636, 0.60000014)
+texture = ExtResource("7_eo802")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1048189771]
+position = Vector2(15, 0)
+shape = SubResource("RectangleShape2D_06fw3")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=198203670]
+position = Vector2(562, 633)
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls" unique_id=532346350]
+position = Vector2(-476, -326.00003)
+rotation = -0.35242724
+scale = Vector2(0.6474903, 3.0418148)
+texture = ExtResource("8_3tfhq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Walls" unique_id=1827055033]
+position = Vector2(518, -326.00003)
+rotation = 0.3818149
+scale = Vector2(0.6474903, 3.0418148)
+texture = ExtResource("8_3tfhq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1951015325]
+position = Vector2(-476, -321)
+rotation = -0.3603595
+shape = SubResource("RectangleShape2D_cttfq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=819462116]
+position = Vector2(507, -298)
+rotation = 0.38221473
+shape = SubResource("RectangleShape2D_cttfq")
+
+[connection signal="collected_food" from="Player" to="." method="_on_player_collected_food"]

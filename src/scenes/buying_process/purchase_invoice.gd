@@ -1,15 +1,19 @@
 extends Control
-@onready var lbl_subtotal : Label = $VBoxContainer/LblSubtotal
-@onready var lbl_coupon : Label = $VBoxContainer/LblCoupon
-@onready var btn_confirm : Button = $VBoxContainer/BtnConfirm
+
+@onready var lbl_subtotal: Label = $VBoxContainer/LblSubtotal
+@onready var lbl_coupon: Label = $VBoxContainer/LblCoupon
+@onready var btn_confirm: Button = $VBoxContainer/BtnConfirm
+var applied_coupon: Dictionary = {}
 
 func _ready() -> void:
-	# Conectar señal programaticamente
+	# Conectar señal programáticamente
 	btn_confirm.pressed.connect(_on_confirm)
 	_update_invoice()
 
 func _on_confirm() -> void:
-	pass
+	if not applied_coupon.is_empty():
+		GlobalManager.remove_coupon(applied_coupon)
+	lbl_coupon.text = "Compra confirmada"
 
 func _update_invoice() -> void:
 	var base_name: String = GlobalManager.selection["base"]
@@ -39,4 +43,14 @@ func _update_invoice() -> void:
 		item_2_price,
 		item_2_total,
 		GlobalManager.current_total
+	]
+	var subtotal: int = GlobalManager.current_total
+	applied_coupon = GlobalManager.get_best_coupon(subtotal)
+	var discount: int = 0
+	if not applied_coupon.is_empty():
+		discount = applied_coupon["value"]
+	var final_total: int = max(subtotal - discount, 0)
+	lbl_coupon.text = "Descuento aplicado por cupón: $%d\nTOTAL: $%d" % [
+		discount,
+		final_total
 	]
