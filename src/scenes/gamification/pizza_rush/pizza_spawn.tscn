@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dnbtrtw13djdp"]
+
+[ext_resource type="Script" uid="uid://cg1ac8q5rbae7" path="res://src/scenes/gamification/pizza_rush/pizza_spawn.gd" id="1_fgvmf"]
+[ext_resource type="PackedScene" uid="uid://ocmnreyjqyxn" path="res://src/scenes/gamification/pizza_rush/pizza.tscn" id="2_4wo7h"]
+[ext_resource type="Texture2D" uid="uid://tgvmjch7og0l" path="res://src/scenes/gamification/pizza_rush/assets/table.png" id="3_4wo7h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13xk6"]
+radius = 36.5
+height = 216.0
+
+[node name="PizzaSpawn" type="Node2D" unique_id=247385812 groups=["pizza_spawn"]]
+script = ExtResource("1_fgvmf")
+PIZZA_SCENE = ExtResource("2_4wo7h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2055478168]
+modulate = Color(0.4351923, 0.43519226, 0.43519226, 1)
+position = Vector2(-4, 59)
+scale = Vector2(0.5769231, 0.5769231)
+texture = ExtResource("3_4wo7h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=339041882]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1233076596]
+position = Vector2(-5, 48.5)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_13xk6")

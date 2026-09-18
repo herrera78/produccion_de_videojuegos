@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ocmnreyjqyxn"]
+
+[ext_resource type="Script" uid="uid://b8d3pj8lp0ah6" path="res://src/scenes/gamification/pizza_rush/pizza.gd" id="1_2hnjr"]
+[ext_resource type="Texture2D" uid="uid://dcvyfqt5nwfvo" path="res://src/scenes/gamification/pizza_rush/assets/p3.png" id="2_13xk6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_764qj"]
+radius = 38.0
+height = 206.0
+
+[node name="Pizza" type="CharacterBody2D" unique_id=33419952]
+input_pickable = true
+script = ExtResource("1_2hnjr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=589209553]
+position = Vector2(0, -1.0000001)
+scale = Vector2(0.6876923, 0.6876923)
+texture = ExtResource("2_13xk6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=390728897]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_764qj")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=937191777]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1909341758]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_764qj")
+
+[node name="Timer" type="Timer" parent="." unique_id=1678909431]
+process_callback = 0
+wait_time = 10.0
+one_shot = true

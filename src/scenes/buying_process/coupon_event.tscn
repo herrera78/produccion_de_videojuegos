@@ -31,7 +31,7 @@ para ganar muchos premios en cupones!"
 [node name="BtnPlay" parent="VBoxContainer" unique_id=350204059 instance=ExtResource("1_ogcrn")]
 layout_mode = 2
 text = "Jugar ahora"
-target_scene = "uid://4y6bmxw0xtbl"
+target_scene = "uid://bqtxl3x4d6we4"
 
 [node name="BtnBack" parent="VBoxContainer" unique_id=1483857764 instance=ExtResource("1_ogcrn")]
 layout_mode = 2
