@@ -107,12 +107,10 @@ func process_disponible(delta: float) -> void:
 
 func process_arrastrando(delta: float) -> void:
 	global_position = get_global_mouse_position()
-	var direction = Input.get_axis("move_left", "move_right")
-	scale.x = lerp(scale.x, 1.0 + abs(direction) * 0.08, 0.15)
-	scale.y = lerp(scale.y, 1.0 - abs(direction) * 0.05, 0.15)
+	scale.x = lerp(scale.x, 1.18, 0.15)
+	scale.y = lerp(scale.y, 0.84, 0.15)
 	if Input.is_action_just_released("interact"):
 		release_pizza()
-
 
 func release_pizza() -> void:
 	var delivery_area = get_delivery_area()

@@ -16,6 +16,8 @@ var selection: Dictionary = {
 
 var current_total: int = 0
 
+const SAVE_PATH := "user://save_data.json"
+
 # Ejemplo de la información de los cupones
 #{
 	#"value": 2000,
@@ -28,9 +30,11 @@ func _ready() -> void:
 	EventBus.item_added.connect(_on_item_added)
 	EventBus.coupon_obtained.connect(_on_coupon_obtained)
 	_update_total()
+	load_coupons()
 
 func _on_coupon_obtained(coupon: Dictionary) -> void:
 	coupons.append(coupon)
+	save_coupons()
 
 
 func _on_base_selected(base_id: String) -> void:
@@ -60,3 +64,25 @@ func get_best_coupon(subtotal: int) -> Dictionary:
 func remove_coupon(coupon: Dictionary) -> void:
 	if coupon in coupons:
 		coupons.erase(coupon)
+		save_coupons()
+
+func save_coupons() -> void:
+	var save_data := {
+		"coupons": coupons
+	}
+	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if file == null:
+		printerr("No fue posible guardar los cupones.")
+		return
+	file.store_string(JSON.stringify(save_data))
+
+func load_coupons() -> void:
+	if not FileAccess.file_exists(SAVE_PATH):
+		return
+	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if file == null:
+		printerr("No fue posible cargar los cupones.")
+		return
+	var data = JSON.parse_string(file.get_as_text())
+	if data is Dictionary:
+		coupons = data.get("coupons", [])
