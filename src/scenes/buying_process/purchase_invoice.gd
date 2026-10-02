@@ -3,6 +3,7 @@ extends Control
 @onready var lbl_subtotal: Label = $VBoxContainer/LblSubtotal
 @onready var lbl_coupon: Label = $VBoxContainer/LblCoupon
 @onready var btn_confirm: Button = $VBoxContainer/BtnConfirm
+@onready var pop_up_confirm : Panel = $PurchaseSuccessPopup
 var applied_coupon: Dictionary = {}
 
 func _ready() -> void:
@@ -14,6 +15,8 @@ func _on_confirm() -> void:
 	if not applied_coupon.is_empty():
 		GlobalManager.remove_coupon(applied_coupon)
 	lbl_coupon.text = "Compra confirmada"
+	pop_up_confirm.show()
+	
 
 func _update_invoice() -> void:
 	var base_name: String = GlobalManager.selection["base"]

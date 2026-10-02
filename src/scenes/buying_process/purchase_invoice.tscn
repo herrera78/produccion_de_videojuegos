@@ -2,6 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="1_8ogr2"]
 [ext_resource type="Script" uid="uid://6kp6ri5hkcky" path="res://src/scenes/buying_process/purchase_invoice.gd" id="1_lm570"]
+[ext_resource type="Theme" uid="uid://b3h7svs88dghs" path="res://src/assets/ui/ui_theme.tres" id="1_xyxq8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xyxq8"]
+bg_color = Color(0.24, 0.12959999, 0.019199995, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.53879327, 0.317511, 0.08860011, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
 
 [node name="PurchaseInvoice" type="Control" unique_id=228310787]
 layout_mode = 3
@@ -10,15 +24,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_xyxq8")
 script = ExtResource("1_lm570")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1976696185]
 layout_mode = 0
-offset_left = 262.0
+offset_left = 138.0
 offset_top = 48.999992
-offset_right = 612.0
-offset_bottom = 356.0
-scale = Vector2(1.755, 1.755)
+offset_right = 1055.0
+offset_bottom = 591.0
 
 [node name="LblTitle" type="Label" parent="VBoxContainer" unique_id=1517311252]
 layout_mode = 2
@@ -29,13 +43,15 @@ layout_mode = 2
 text = "BASE ELEGIDA: ...    0$
 INGREDIENTE 1: ... 0$
 INGREDIENTE 2: ... 0$
-Subtotal:... 0$"
+Subtotal:... 0$
+------------------"
 
 [node name="LblCoupon" type="Label" parent="VBoxContainer" unique_id=1852637546]
 layout_mode = 2
 text = "DESCUENTO APLICADO POR CUPÓN: 0$"
 
 [node name="LblTotal" type="Label" parent="VBoxContainer" unique_id=2048895684]
+visible = false
 layout_mode = 2
 text = "TOTAL: 0%"
 
@@ -47,4 +63,44 @@ text = "Confirmar Compra"
 layout_mode = 2
 text = "Volver"
 target_scene = "uid://c225od0orqwgc"
+discard_previous = true
+
+[node name="PurchaseSuccessPopup" type="Panel" parent="." unique_id=1574922215]
+visible = false
+layout_mode = 0
+offset_left = 130.0
+offset_top = 55.0
+offset_right = 1058.0
+offset_bottom = 596.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xyxq8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PurchaseSuccessPopup" unique_id=343609283]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 66.0
+offset_right = 804.0
+offset_bottom = 488.0
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="PurchaseSuccessPopup/VBoxContainer" unique_id=1477531921]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8901961, 0.6156863, 1)
+theme_override_font_sizes/font_size = 64
+text = "¡Compra realizada!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="Label" parent="PurchaseSuccessPopup/VBoxContainer" unique_id=1374895933]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.99999946, 0.8896875, 0.6148245, 1)
+text = "Tu pedido está en proceso."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnNavVolver" parent="PurchaseSuccessPopup/VBoxContainer" unique_id=2001995252 instance=ExtResource("1_8ogr2")]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Continuar"
+target_scene = "uid://5efb1pfc8ef5"
 discard_previous = true

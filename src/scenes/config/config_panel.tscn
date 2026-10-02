@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cf142lml8yall"]
 
+[ext_resource type="Theme" uid="uid://b3h7svs88dghs" path="res://src/assets/ui/ui_theme.tres" id="1_3vctx"]
 [ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="2_3vctx"]
 
 [node name="ConfigPanel" type="Control" unique_id=306684912]
@@ -9,28 +10,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3vctx")
 
 [node name="Label" type="Label" parent="." unique_id=1334380628]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 206.0
-offset_top = 130.0
-offset_right = -646.0
-offset_bottom = -483.0
+offset_left = 293.0
+offset_top = 240.0
+offset_right = -266.0
+offset_bottom = -363.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.4609406, 2.4609406)
 text = "Panel de Configuración de Parámetros"
 
 [node name="BtnBack" parent="." unique_id=350204059 instance=ExtResource("2_3vctx")]
 layout_mode = 1
-offset_left = 363.0
-offset_top = 276.0
-offset_right = -595.5
-offset_bottom = -308.0
-scale = Vector2(2, 2)
+offset_left = 387.0
+offset_top = 367.0
+offset_right = -385.0
+offset_bottom = -182.0
 text = "Volver al menú"
 target_scene = "uid://5efb1pfc8ef5"
 discard_previous = true

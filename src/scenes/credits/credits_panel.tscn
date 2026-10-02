@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://0l0shfhsx1mh"]
 
+[ext_resource type="Theme" uid="uid://b3h7svs88dghs" path="res://src/assets/ui/ui_theme.tres" id="1_ib7pc"]
 [ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="1_w2i6q"]
 
 [node name="CreditsPanel" type="Control" unique_id=1008805159]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ib7pc")
 
 [node name="Label" type="Label" parent="." unique_id=926716086]
 layout_mode = 0
@@ -16,16 +18,14 @@ offset_left = 271.00003
 offset_top = 185.0
 offset_right = 519.0
 offset_bottom = 208.0
-scale = Vector2(2.4844906, 2.4844906)
 text = "Desarrollado por: [Su Nombre Completo]"
 
 [node name="BtnBack" parent="." unique_id=350204059 instance=ExtResource("1_w2i6q")]
 layout_mode = 1
-offset_left = 363.0
-offset_top = 276.0
-offset_right = -595.5
-offset_bottom = -308.0
-scale = Vector2(2, 2)
+offset_left = 381.0
+offset_top = 347.0
+offset_right = -391.0
+offset_bottom = -202.0
 text = "Volver al menú"
 target_scene = "uid://5efb1pfc8ef5"
 discard_previous = true

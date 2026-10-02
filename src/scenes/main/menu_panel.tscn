@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://5efb1pfc8ef5"]
 
 [ext_resource type="Script" uid="uid://b71mmwfppdpb1" path="res://src/scenes/main/menu_panel.gd" id="1_k6per"]
+[ext_resource type="Theme" uid="uid://b3h7svs88dghs" path="res://src/assets/ui/ui_theme.tres" id="1_oixcc"]
 [ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="2_oixcc"]
+[ext_resource type="Texture2D" uid="uid://cfk08y7u5dxkb" path="res://src/scenes/main/assets/Fondo de menú con pizza divertida.png" id="4_bygdf"]
 
 [node name="MenuPanel" type="Control" unique_id=1378413799]
 custom_maximum_size = Vector2(0, 0)
@@ -15,15 +17,23 @@ offset_right = -1146.0
 offset_bottom = -639.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_oixcc")
 script = ExtResource("1_k6per")
 
 [node name="VBoxMenu" type="VBoxContainer" parent="." unique_id=566877180]
-layout_mode = 0
-offset_left = 227.99998
-offset_top = 19.0
-offset_right = 432.0
-offset_bottom = 190.0
-scale = Vector2(3.2459536, 3.4149988)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 328.0
+offset_top = 36.0
+offset_right = 852.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
 
 [node name="BtnBuyPanel" parent="VBoxMenu" unique_id=350204059 instance=ExtResource("2_oixcc")]
 layout_mode = 2
@@ -48,3 +58,15 @@ target_scene = "uid://0l0shfhsx1mh"
 [node name="BtnExit" type="Button" parent="VBoxMenu" unique_id=542926472]
 layout_mode = 2
 text = "Cerrar Aplicación"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1109963047]
+z_index = -1
+layout_mode = 0
+offset_left = -22.0
+offset_top = -15.0
+offset_right = 1170.676
+offset_bottom = 642.0
+mouse_filter = 2
+texture = ExtResource("4_bygdf")
+expand_mode = 1
+stretch_mode = 5
