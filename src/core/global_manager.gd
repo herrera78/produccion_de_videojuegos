@@ -1,5 +1,9 @@
 # res://src/core/global_manager.gd
 extends Node
+var ingredient_database: IngredientDatabase = preload("res://src/data/ingredient_database.tres")
+var ingredients: Array[IngredientData]:
+	get:
+		return ingredient_database.ingredients
 
 var prices: Dictionary = {
  	"base_1": 5000,

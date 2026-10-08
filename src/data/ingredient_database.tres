@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="IngredientDatabase" format=3 uid="uid://rqebmdlfhncm"]
+
+[ext_resource type="Script" uid="uid://cbak817awe7da" path="res://src/data/ingredient_data.gd" id="1_4fh6a"]
+[ext_resource type="Resource" uid="uid://cjbdxealgr2bq" path="res://src/data/ingredients/cheese.tres" id="2_py16j"]
+[ext_resource type="Script" uid="uid://gmgt3sg2uyoh" path="res://src/data/ingredient_database.gd" id="2_v1ivg"]
+[ext_resource type="Resource" uid="uid://6lgfvbv0axyg" path="res://src/data/ingredients/mushroom.tres" id="3_j6rgb"]
+[ext_resource type="Resource" uid="uid://bcmcmpq2y4ube" path="res://src/data/ingredients/olives.tres" id="4_a4l1j"]
+[ext_resource type="Resource" uid="uid://d1hkm7dqxpk2q" path="res://src/data/ingredients/pepperoni.tres" id="5_x8pts"]
+
+[resource]
+script = ExtResource("2_v1ivg")
+ingredients = Array[ExtResource("1_4fh6a")]([ExtResource("2_py16j"), ExtResource("3_j6rgb"), ExtResource("4_a4l1j"), ExtResource("5_x8pts")])
+metadata/_custom_type_script = "uid://gmgt3sg2uyoh"

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://d1hkm7dqxpk2q"]
+
+[ext_resource type="Script" uid="uid://cbak817awe7da" path="res://src/data/ingredient_data.gd" id="1_dos48"]
+
+[resource]
+script = ExtResource("1_dos48")
+metadata/_custom_type_script = "uid://cbak817awe7da"
