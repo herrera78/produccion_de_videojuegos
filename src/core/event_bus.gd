@@ -14,4 +14,8 @@ signal item_added(item_id: String)
 # Señal para notificar un cambio en el precio total
 signal total_changed(new_total: int)
 
+signal pizza_total_changed(new_total: int)
+
 signal coupon_obtained(coupon: Dictionary)
+
+signal ingredient_selected(ingredient_id: String, half: int)

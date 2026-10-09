@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://pwi8as7ehah6"]
+
+[ext_resource type="Theme" uid="uid://b3h7svs88dghs" path="res://src/assets/ui/ui_theme.tres" id="1_5c36o"]
+[ext_resource type="Script" uid="uid://b70thcps0arct" path="res://src/scenes/buying_process/buy_panel_interactive.gd" id="2_5c36o"]
+[ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="3_u1kg0"]
+[ext_resource type="Script" uid="uid://kqy28sm4j1ut" path="res://src/scenes/buying_process/pizza_composition.gd" id="4_61fua"]
+[ext_resource type="Texture2D" uid="uid://267iqp1jre8n" path="res://src/scenes/buying_process/assets/base.png" id="5_bc6jg"]
+
+[node name="BuyPanelInteractive" type="Control" unique_id=1378413799]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5c36o")
+script = ExtResource("2_5c36o")
+
+[node name="IngredientScroll" type="ScrollContainer" parent="." unique_id=1606205558]
+layout_mode = 0
+offset_right = 650.0
+offset_bottom = 650.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IngredientScroll" unique_id=481507754]
+layout_mode = 2
+
+[node name="LblTitle" type="Label" parent="IngredientScroll/VBoxContainer" unique_id=1731830673]
+layout_mode = 2
+text = "Pantalla de Simulación Interactiva - Paso 1"
+
+[node name="IngredientList" type="VBoxContainer" parent="IngredientScroll/VBoxContainer" unique_id=311043675]
+layout_mode = 2
+
+[node name="LblTotal" type="Label" parent="IngredientScroll/VBoxContainer" unique_id=1360770614]
+layout_mode = 2
+text = "Total: 0$"
+
+[node name="BtnBuy" parent="IngredientScroll/VBoxContainer" unique_id=350204059 instance=ExtResource("3_u1kg0")]
+layout_mode = 2
+text = "Continuar compra"
+target_scene = "uid://bvd8cte5brj7e"
+discard_previous = true
+
+[node name="BtnBack" parent="IngredientScroll/VBoxContainer" unique_id=840366982 instance=ExtResource("3_u1kg0")]
+layout_mode = 2
+text = "Volver al menú"
+target_scene = "uid://5efb1pfc8ef5"
+discard_previous = true
+
+[node name="PizzaComposition" type="Control" parent="." unique_id=798652971]
+anchors_preset = 0
+offset_left = 665.0
+offset_top = 4.0
+offset_right = 1151.0
+offset_bottom = 648.0
+script = ExtResource("4_61fua")
+
+[node name="LeftFlavor" type="TextureRect" parent="PizzaComposition" unique_id=528455800]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 76.0
+offset_right = 245.0
+offset_bottom = 566.0
+pivot_offset = Vector2(125, 245)
+texture = ExtResource("5_bc6jg")
+
+[node name="Button" type="Button" parent="PizzaComposition/LeftFlavor" unique_id=932189312]
+layout_mode = 0
+offset_right = 244.0
+offset_bottom = 488.0
+flat = true
+
+[node name="Selection" type="ColorRect" parent="PizzaComposition/LeftFlavor" unique_id=1675748036]
+layout_mode = 0
+offset_right = 241.0
+offset_bottom = 494.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="RightFlavor" type="TextureRect" parent="PizzaComposition" unique_id=1153750287]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 75.0
+offset_right = 481.0
+offset_bottom = 565.0
+pivot_offset = Vector2(125, 245)
+texture = ExtResource("5_bc6jg")
+flip_h = true
+
+[node name="Selection" type="ColorRect" parent="PizzaComposition/RightFlavor" unique_id=126127185]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 248.0
+offset_bottom = 495.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Button" type="Button" parent="PizzaComposition/RightFlavor" unique_id=130258667]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 251.0
+offset_bottom = 489.0
+flat = true

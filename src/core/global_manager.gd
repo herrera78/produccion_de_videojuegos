@@ -17,6 +17,12 @@ var selection: Dictionary = {
  	"item_1": 0,
  	"item_2": 0
  }
+var pizza_selection: Dictionary = {
+	"left": "",
+	"right": ""
+}
+
+var pizza_total: int = 0
 
 var current_total: int = 0
 
@@ -33,8 +39,28 @@ func _ready() -> void:
 	EventBus.base_selected.connect(_on_base_selected)
 	EventBus.item_added.connect(_on_item_added)
 	EventBus.coupon_obtained.connect(_on_coupon_obtained)
+	EventBus.ingredient_selected.connect(_on_ingredient_selected)
 	_update_total()
 	load_coupons()
+
+func _on_ingredient_selected(ingredient_id: String, half: int) -> void:
+	var half_string = ""
+	if half == 0:
+		half_string="left"
+	elif half == 1:
+		half_string ="right"
+	pizza_selection[half_string] = ingredient_id
+	_update_pizza_total()
+
+func _update_pizza_total() -> void:
+	pizza_total = 0
+	for ingredient_id in pizza_selection.values():
+		for ingredient in ingredients:
+			if ingredient.id == ingredient_id:
+				pizza_total += ingredient.price
+				break
+	EventBus.pizza_total_changed.emit(pizza_total)
+
 
 func _on_coupon_obtained(coupon: Dictionary) -> void:
 	coupons.append(coupon)

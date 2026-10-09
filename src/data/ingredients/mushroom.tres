@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://6lgfvbv0axyg"]
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://dntejpioq67d8"]
 
 [ext_resource type="Script" uid="uid://cbak817awe7da" path="res://src/data/ingredient_data.gd" id="1_0qaem"]
+[ext_resource type="Texture2D" uid="uid://dn5a3ik3pyf61" path="res://src/scenes/buying_process/assets/mushroom.png" id="2_c6wbr"]
 
 [resource]
 script = ExtResource("1_0qaem")
+id = "mushroom"
+display_name = "champiñones"
+texture = ExtResource("2_c6wbr")
+price = 13900
 metadata/_custom_type_script = "uid://cbak817awe7da"

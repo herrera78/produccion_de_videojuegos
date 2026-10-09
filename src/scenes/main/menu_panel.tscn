@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cfk08y7u5dxkb" path="res://src/scenes/main/assets/Fondo de menú con pizza divertida.png" id="4_bygdf"]
 
 [node name="MenuPanel" type="Control" unique_id=1378413799]
-custom_maximum_size = Vector2(0, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,10 +26,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 328.0
-offset_top = 36.0
-offset_right = 852.0
-offset_bottom = 595.0
+offset_left = 298.0
+offset_top = 12.0
+offset_right = 933.0
+offset_bottom = 614.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
@@ -39,6 +38,12 @@ theme_override_constants/separation = 16
 layout_mode = 2
 text = "Iniciar Compra"
 target_scene = "uid://c225od0orqwgc"
+
+[node name="BtnBuyPanelInteractive" parent="VBoxMenu" unique_id=497805681 instance=ExtResource("2_oixcc")]
+layout_mode = 2
+text = "Iniciar Compra Interactiva
+"
+target_scene = "uid://pwi8as7ehah6"
 
 [node name="BtnCoupons" parent="VBoxMenu" unique_id=1046451653 instance=ExtResource("2_oixcc")]
 layout_mode = 2

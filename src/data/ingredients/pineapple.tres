@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://5d1jb8rp46s5"]
+
+[ext_resource type="Script" uid="uid://cbak817awe7da" path="res://src/data/ingredient_data.gd" id="1_whbnd"]
+[ext_resource type="Texture2D" uid="uid://dk47qh5eaac3p" path="res://src/scenes/buying_process/assets/pineapple.png" id="2_xdnay"]
+
+[resource]
+script = ExtResource("1_whbnd")
+id = "pineapple"
+display_name = "piña"
+texture = ExtResource("2_xdnay")
+price = 8500
+metadata/_custom_type_script = "uid://cbak817awe7da"

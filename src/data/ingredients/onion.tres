@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://btyxknikc1nxa"]
+
+[ext_resource type="Script" uid="uid://cbak817awe7da" path="res://src/data/ingredient_data.gd" id="1_kt154"]
+[ext_resource type="Texture2D" uid="uid://n2rtjnji5gka" path="res://src/scenes/buying_process/assets/onion.png" id="2_biwnk"]
+
+[resource]
+script = ExtResource("1_kt154")
+id = "onion"
+display_name = "cebolla"
+texture = ExtResource("2_biwnk")
+price = 6900
+metadata/_custom_type_script = "uid://cbak817awe7da"
