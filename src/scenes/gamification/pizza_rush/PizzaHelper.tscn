@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://lvpirgucwwgi"]
+
+[ext_resource type="Texture2D" uid="uid://bvxgx5md3nwkt" path="res://src/scenes/gamification/pizza_rush/assets/HandIcons.png" id="1_c8jft"]
+[ext_resource type="Script" uid="uid://4e7pxf3ff6ce" path="res://src/scenes/gamification/pizza_rush/PizzaHelper.gd" id="newscript"]
+
+[node name="PizzaHelper" type="Node2D" unique_id=123456789]
+script = ExtResource("newscript")
+
+[node name="EnergyBar" type="ProgressBar" parent="." unique_id=666]
+offset_left = -32.0
+offset_top = -79.0
+offset_right = 42.0
+offset_bottom = -59.0
+show_percentage = false
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=555]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=649604373]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_c8jft")
+hframes = 2

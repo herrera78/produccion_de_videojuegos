@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bv4bou2osatdb" path="res://src/scenes/gamification/pizza_rush/delivery_area.gd" id="3_0mugm"]
 [ext_resource type="Texture2D" uid="uid://b2pb6qddlh2aw" path="res://src/scenes/gamification/pizza_rush/assets/open_box.png" id="5_764qj"]
 [ext_resource type="PackedScene" uid="uid://cp5ohhvdvgiy3" path="res://src/components/button_nav.tscn" id="6_764qj"]
+[ext_resource type="PackedScene" uid="uid://lvpirgucwwgi" path="res://src/scenes/gamification/pizza_rush/PizzaHelper.tscn" id="7_vqpgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4f3xa"]
 size = Vector2(119, 114)
@@ -153,3 +154,6 @@ size_flags_vertical = 3
 text = "BOTON VOLVER"
 target_scene = "uid://c0o8aeh6tif7l"
 discard_previous = true
+
+[node name="PizzaHelper" parent="." unique_id=123456789 instance=ExtResource("7_vqpgj")]
+position = Vector2(563, 329)

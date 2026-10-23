@@ -88,11 +88,29 @@ func _physics_process(delta: float) -> void:
 			process_entregada(delta)
 
 
+func handle_click() -> bool:
+	match current_state:
+		PizzaState.CONGELADA, PizzaState.COCINANDO:
+			var is_cooking := current_state == PizzaState.COCINANDO
+			var duration := cooking_duration if is_cooking else frozen_duration
+			var start_color := Color(1.0, 0.912, 0.897) if is_cooking else Color(0.05, 0.2, 1.0)
+			var end_color := Color(1.0, 0.463, 0.0) if is_cooking else Color.WHITE
+			var next_state := PizzaState.LISTA if is_cooking else PizzaState.DISPONIBLE
+			var new_time = max(timer.time_left - 1.0, 0.1)
+			timer.start(new_time)
+			animate_interaction()
+			var progress = 1.0 - (timer.time_left / duration)
+			sprite.modulate = start_color.lerp(end_color, progress)
+			if timer.time_left <= 0.1:
+				change_state(next_state)
+			return true
+		_:
+			return false
+
+
 func process_congelada(delta: float) -> void:
 	if mouse_over and Input.is_action_just_pressed("interact"):
-		var new_time = max(timer.time_left - 1.0, 0.1)
-		timer.start(new_time)
-		animate_interaction()
+		handle_click()
 	var progress = 1.0 - (timer.time_left / frozen_duration)
 	sprite.modulate = Color(0.05, 0.2, 1.0).lerp(Color(1.0, 1.0, 1.0), progress)
 
@@ -143,9 +161,7 @@ func get_delivery_area() -> Area2D:
 
 func process_cocinando(delta: float) -> void:
 	if mouse_over and Input.is_action_just_pressed("interact"):
-		var new_time = max(timer.time_left - 1.0, 0.1)
-		timer.start(new_time)
-		animate_interaction()
+		handle_click()
 	var progress = 1.0 - (timer.time_left / cooking_duration)
 	sprite.modulate = Color(1.0, 0.912, 0.897, 1.0).lerp(Color(1.0, 0.463, 0.0, 1.0), progress)
 
@@ -225,6 +241,9 @@ func animate_delivery() -> void:
 	tween.tween_property(sprite, "modulate:a", 0.0, 0.25)
 	await tween.finished
 	queue_free()
+
+func interact_agent() -> bool:
+	return handle_click()
 
 
 func play_transition_animation(from_state: PizzaState, to_state: PizzaState) -> void:
