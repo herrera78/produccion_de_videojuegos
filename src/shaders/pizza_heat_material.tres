@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://0ggmv6djr2m"]
+
+[ext_resource type="Shader" uid="uid://bl38bngloehst" path="res://src/shaders/pizza_heat.gdshader" id="1_7njt3"]
+
+[resource]
+shader = ExtResource("1_7njt3")
+shader_parameter/distortion_strength = 0.008
+shader_parameter/wave_frequency = 24.0
+shader_parameter/wave_speed = 3.0

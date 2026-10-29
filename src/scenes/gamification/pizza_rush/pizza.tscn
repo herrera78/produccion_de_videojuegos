@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://b8d3pj8lp0ah6" path="res://src/scenes/gamification/pizza_rush/pizza.gd" id="1_2hnjr"]
 [ext_resource type="Texture2D" uid="uid://dcvyfqt5nwfvo" path="res://src/scenes/gamification/pizza_rush/assets/p3.png" id="2_13xk6"]
+[ext_resource type="Shader" uid="uid://mkgex2igpj3k" path="res://src/shaders/pizza_outline.gdshader" id="2_f3x0c"]
+[ext_resource type="Material" uid="uid://0ggmv6djr2m" path="res://src/shaders/pizza_heat_material.tres" id="4_nbd5e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbd5e"]
+shader = ExtResource("2_f3x0c")
+shader_parameter/outline_color = Color(1, 0.85, 0.2, 1)
+shader_parameter/outline_size = 3.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_764qj"]
 radius = 38.0
@@ -11,7 +18,14 @@ height = 206.0
 input_pickable = true
 script = ExtResource("1_2hnjr")
 
+[node name="OutlineSprite" type="Sprite2D" parent="." unique_id=1789342524]
+material = SubResource("ShaderMaterial_nbd5e")
+position = Vector2(0, -1.0000001)
+scale = Vector2(0.7014461, 0.7014461)
+texture = ExtResource("2_13xk6")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=589209553]
+material = ExtResource("4_nbd5e")
 position = Vector2(0, -1.0000001)
 scale = Vector2(0.6876923, 0.6876923)
 texture = ExtResource("2_13xk6")

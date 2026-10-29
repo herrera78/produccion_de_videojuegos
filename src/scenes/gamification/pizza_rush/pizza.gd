@@ -11,6 +11,9 @@ enum PizzaState {
 
 @onready var timer: Timer = $Timer
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var outline_sprite: Sprite2D = $OutlineSprite
+
+var heat_material: ShaderMaterial
 
 var current_state: PizzaState = PizzaState.CONGELADA
 var previous_state: PizzaState = PizzaState.CONGELADA
@@ -24,16 +27,35 @@ func _ready() -> void:
 	mouse_exited.connect(_on_mouse_exited)
 	timer.timeout.connect(_on_timer_timeout)
 	sprite.modulate = Color(0.1, 0.3, 1.0)
+	heat_material = sprite.material
+	sprite.material = null
+	outline_sprite.visible = false
 	timer.start(frozen_duration)
 	animate_enter_frozen()
 
 
 func _on_mouse_entered() -> void:
 	mouse_over = true
+	_refresh_effects()
 
 
 func _on_mouse_exited() -> void:
 	mouse_over = false
+	_refresh_effects()
+
+
+func _refresh_effects() -> void:
+	outline_sprite.visible = is_interactable() and mouse_over
+	if heat_material:
+		sprite.material = heat_material if current_state == PizzaState.COCINANDO else null
+
+
+func is_interactable() -> bool:
+	match current_state:
+		PizzaState.CONGELADA, PizzaState.DISPONIBLE, PizzaState.COCINANDO, PizzaState.LISTA:
+			return true
+		_:
+			return false
 
 
 func _on_timer_timeout() -> void:
@@ -67,6 +89,7 @@ func change_state(next_state: PizzaState) -> bool:
 	previous_state = current_state
 	current_state = next_state
 	play_transition_animation(previous_state, current_state)
+	_refresh_effects()
 	if current_state == PizzaState.COCINANDO:
 		timer.start(cooking_duration)
 	return true

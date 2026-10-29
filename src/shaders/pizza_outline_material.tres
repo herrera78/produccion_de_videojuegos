@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ccclsowngmnsy"]
+
+[ext_resource type="Shader" path="res://src/shaders/pizza_outline.gdshader" id="1_j10on"]
+
+[resource]
+shader = ExtResource("1_j10on")
+shader_parameter/outline_color = Color(1, 0.85, 0.2, 1)
+shader_parameter/outline_size = 3.0
