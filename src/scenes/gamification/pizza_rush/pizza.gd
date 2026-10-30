@@ -11,7 +11,7 @@ enum PizzaState {
 
 @onready var timer: Timer = $Timer
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var outline_sprite: Sprite2D = $OutlineSprite
+@onready var outline_sprite: Sprite2D = $Sprite2D/OutlineSprite
 
 var heat_material: ShaderMaterial
 
