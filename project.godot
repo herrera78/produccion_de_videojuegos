@@ -10,17 +10,15 @@ config_version=5
 
 [application]
 
-config/name="mi_sistema_interactivo"
-run/main_scene="uid://bf8mx6l5whl6v"
+config/name="SecurityCameraSystem"
+run/main_scene="uid://7c8xbeiqrsyi"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://src/assets/ui/icon.svg"
-
-[autoload]
-
-EventBus="*uid://dp5tvk24xs3b4"
+config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=960
+window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
